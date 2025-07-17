@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://3kh2vr6ugkbp"]
+
+[ext_resource type="Script" uid="uid://bnj7l2w6xly7s" path="res://level_stub.gd" id="1_1bbum"]
+[ext_resource type="PackedScene" uid="uid://b6mck83s6vfmw" path="res://shop.tscn" id="2_n2myd"]
+
+[node name="LevelStub" type="Node2D"]
+script = ExtResource("1_1bbum")
+
+[node name="Shop" parent="." instance=ExtResource("2_n2myd")]
+anchors_preset = 9
+anchor_right = 0.0
+offset_right = 128.0
+offset_bottom = 648.0
+grow_horizontal = 1
+
+[connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
+[connection signal="shop_ready" from="Shop" to="." method="_on_shop_shop_ready"]

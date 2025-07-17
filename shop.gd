@@ -1,16 +1,14 @@
 extends Control
 
 signal shop_ready ## Signals that the shop is ready
-signal item_selected(item_name: StringName) ## Signals that an item is selected
+signal item_selected(item_name) ## Signals that an item is selected
 
-var shopdata: Dictionary[StringName, int] = {} ## Holds item data in the format {item_name: quantity}
+var shopdata: Dictionary = {} ## Holds item data in the format {item_name: quantity}
 
 ## [param data] - item name to quantity [br]
 ## [param sprites] - item name to image path
-func init_shop(data: Dictionary[StringName, int], sprites: Dictionary[StringName, String]) -> void:
-	
-
-	var container_node: VBoxContainer = $ScrollContainer/VBoxContainer
+func init_shop(data: Dictionary, sprites: Dictionary) -> void:
+	var container_node: VBoxContainer = $VBoxContainer
 	shopdata = data
 
 	for item_name in shopdata.keys():
@@ -37,5 +35,5 @@ func init_shop(data: Dictionary[StringName, int], sprites: Dictionary[StringName
 	shop_ready.emit()
 
 
-func _item_selected(item_name: StringName) -> void:
+func _item_selected(item_name) -> void:
 	item_selected.emit(item_name)
