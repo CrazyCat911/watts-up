@@ -9,6 +9,10 @@ var shopdata: Dictionary = {} ## Holds item data in the format {item_name: quant
 ## [param sprites] - item name to image path
 func init_shop(data: Dictionary, sprites: Dictionary) -> void:
 	var container_node: VBoxContainer = $VBoxContainer
+	
+	for child in container_node.get_children():
+		child.queue_free()
+	
 	shopdata = data
 
 	for item_name in shopdata.keys():

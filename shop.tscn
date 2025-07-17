@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bbl86okxdxoyv" path="res://shop.gd" id="1_viryw"]
 
 [node name="ScrollContainer" type="ScrollContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1024.0
+custom_minimum_size = Vector2(128, 648)
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 652.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
