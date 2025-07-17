@@ -14,6 +14,10 @@ config/name="Watt's Up?"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveLib="*res://savelib.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
