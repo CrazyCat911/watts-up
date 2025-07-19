@@ -16,7 +16,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SaveLib="*res://savelib.gd"
+SaveLib="*res://save_lib.gd"
+PolygonUtils="*res://polygon_utils.gd"
 
 [display]
 
