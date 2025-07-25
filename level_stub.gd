@@ -2,7 +2,7 @@ extends Node2D
 
 var selected_item: String
 var selected_node: Node2D
-var drag_and_drop_script = load("res://drag_and_drop.gd")
+var solar_panel_script = load("res://solar_panel.gd")
 
 var config: Dictionary = {
 	"solar_panel": {
@@ -45,7 +45,7 @@ func _on_shop_item_selected(item_name: String) -> void:
 	item_node.add_child(item_sprite)
 	item_node.add_child(item_collision)
 	
-	item_node.set_script(drag_and_drop_script)
+	item_node.set_script(solar_panel_script)
 	
 	self.add_child(item_node)
 	selected_node = item_node
