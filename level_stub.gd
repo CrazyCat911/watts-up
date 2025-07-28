@@ -43,6 +43,8 @@ func _on_shop_item_selected(item_name: String) -> void:
 
 	item_sprite.scale = item_shape.size / texture_size
 	
+	item_collision_shape.name = "CollisionPolygon2D"
+	item_collision.name = "Area2D"
 	item_collision.add_child(item_collision_shape)
 	item_node.add_child(item_sprite)
 	item_node.add_child(item_collision)
@@ -55,4 +57,7 @@ func _on_shop_item_selected(item_name: String) -> void:
 	selected_node = item_node
 
 func _on_solar_panel_place(polygon: PackedVector2Array):
-	pass
+	if PolygonUtils.is_polygon_fully_contained(polygon, PolygonUtils.get_global_polygon(roof)):
+		print("yes")
+	else:
+		print("no")
