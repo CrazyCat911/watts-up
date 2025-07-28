@@ -4,6 +4,8 @@ var selected_item: String
 var selected_node: Node2D
 var solar_panel_script = load("res://solar_panel.gd")
 
+@onready var roof: Polygon2D = $Roof
+
 var config: Dictionary = {
 	"solar_panel": {
 		"texture": load("res://assets/solar_panel.png"),
@@ -47,5 +49,10 @@ func _on_shop_item_selected(item_name: String) -> void:
 	
 	item_node.set_script(solar_panel_script)
 	
+	item_node.connect('placed', _on_solar_panel_place)
+	
 	self.add_child(item_node)
 	selected_node = item_node
+
+func _on_solar_panel_place(polygon: PackedVector2Array):
+	pass
