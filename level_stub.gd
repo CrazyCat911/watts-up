@@ -5,6 +5,7 @@ var selected_node: Node2D
 var solar_panel_script = load("res://solar_panel.gd")
 
 @onready var roof: Polygon2D = $Roof
+@onready var shop = $Shop
 
 var config: Dictionary = {
 	"solar_panel": {
@@ -14,7 +15,7 @@ var config: Dictionary = {
 }
 
 func _ready() -> void:
-	$Shop.init_shop({"solar_panel": 1}, {})
+	shop.init_shop({"solar_panel": 1}, {})
 
 func _on_shop_shop_ready() -> void:
 	print("Shop is ready!")
