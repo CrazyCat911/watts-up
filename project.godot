@@ -22,6 +22,7 @@ PolygonUtils="*res://polygon_utils.gd"
 [display]
 
 window/size/mode=2
+window/size/mode.editor=0
 window/stretch/mode="canvas_items"
 
 [input]
