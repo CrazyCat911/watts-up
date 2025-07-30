@@ -22,7 +22,7 @@ var config: Dictionary = {
 }
 
 func _ready() -> void:
-	place_helper.hide()
+	self.remove_child(place_helper)
 	shop.init_shop({"solar_panel": 1}, {})
 
 func _process(_delta: float) -> void:
@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 
 		place_helper.show()
 		place_helper.size = Vector2(selected_node_size, selected_node_size)
-		place_helper.position = selected_node.position - place_helper.size / 2
+		place_helper.position = - place_helper.size / 2
 		place_helper.color = COLOR_PLACEABLE if item_placeable else COLOR_UNPLACEABLE
 
 func _on_shop_shop_ready() -> void:
@@ -72,6 +72,7 @@ func _on_shop_item_selected(item_name: String) -> void:
 	item_node.set_script(solar_panel_script)
 	
 	item_node.connect('placed', _on_solar_panel_place)
+	item_node.add_child(place_helper)
 	
 	self.add_child(item_node)
 	selected_node = item_node
