@@ -78,8 +78,8 @@ func _on_shop_item_selected(item_name: String) -> void:
 	selected_node = item_node
 
 	
-func _on_solar_panel_place(polygon: PackedVector2Array):
-	if PolygonUtils.is_polygon_fully_contained(polygon, PolygonUtils.get_global_polygon(roof)):
+func _on_solar_panel_place():
+	if item_placeable:
 		print("yes")
 	else:
 		print("no")
