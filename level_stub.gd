@@ -1,11 +1,18 @@
 extends Node2D
 
+# Constants
+const COLOR_PLACEABLE: Color = Color(0, 1, 0, 0.5)
+const COLOR_UNPLACEABLE: Color = Color(1, 0, 0, 0.5)
+
 var selected_item: String
 var selected_node: Node2D
+var selected_item_poly: PackedVector2Array
 var solar_panel_script = load("res://solar_panel.gd")
+var item_placeable: bool = false
 
 @onready var roof: Polygon2D = $Roof
 @onready var shop = $Shop
+@onready var place_helper: ColorRect = $PlaceHelper
 
 var config: Dictionary = {
 	"solar_panel": {
@@ -15,7 +22,19 @@ var config: Dictionary = {
 }
 
 func _ready() -> void:
+	place_helper.hide()
 	shop.init_shop({"solar_panel": 1}, {})
+
+func _process(_delta: float) -> void:
+	if selected_node:
+		var selected_node_size: int = config.get(selected_item).get("size")
+		selected_item_poly = PolygonUtils.shape_to_polygon(selected_node.get_node('Area2D/CollisionPolygon2D'))
+		item_placeable = PolygonUtils.is_polygon_fully_contained(selected_item_poly, PolygonUtils.get_global_polygon(roof))
+
+		place_helper.show()
+		place_helper.size = Vector2(selected_node_size, selected_node_size)
+		place_helper.position = selected_node.position - place_helper.size / 2
+		place_helper.color = COLOR_PLACEABLE if item_placeable else COLOR_UNPLACEABLE
 
 func _on_shop_shop_ready() -> void:
 	print("Shop is ready!")
@@ -57,6 +76,7 @@ func _on_shop_item_selected(item_name: String) -> void:
 	self.add_child(item_node)
 	selected_node = item_node
 
+	
 func _on_solar_panel_place(polygon: PackedVector2Array):
 	if PolygonUtils.is_polygon_fully_contained(polygon, PolygonUtils.get_global_polygon(roof)):
 		print("yes")
