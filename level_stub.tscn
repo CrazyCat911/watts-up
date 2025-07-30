@@ -23,12 +23,7 @@ texture_scale = Vector2(50, 50)
 polygon = PackedVector2Array(0, 0, 400, 0, 400, 400, 0, 400)
 
 [node name="PlaceHelper" type="ColorRect" parent="."]
-z_index = 2
-offset_left = 21.0
-offset_top = 168.0
-offset_right = 359.0
-offset_bottom = 474.0
-color = Color(1, 1, 1, 0.470588)
+z_index = 1
 
 [connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
 [connection signal="shop_ready" from="Shop" to="." method="_on_shop_shop_ready"]
