@@ -29,12 +29,22 @@ func is_polygon_fully_contained(poly_a: PackedVector2Array, poly_b: PackedVector
 	var result = Geometry2D.clip_polygons(poly_a, poly_b)
 	return result.is_empty()
 
-func get_global_polygon(polygon_node: Polygon2D) -> PackedVector2Array: ## Converts a Polygon2D node to global space polygon
+func get_global_polygon(polygon_node: Polygon2D) -> PackedVector2Array: ## Converts a Polygon2D node to global space polygon in counterclockwise winding
 	var global_polygon = PackedVector2Array()
 	var global_xform = polygon_node.get_global_transform()
 	for local_point in polygon_node.polygon:
 		global_polygon.append(global_xform * local_point)
+	
+	global_polygon = counterclockwise_wind(global_polygon)
 	return global_polygon
+
+func counterclockwise_wind(polygon: PackedVector2Array) -> PackedVector2Array:
+	if Geometry2D.is_polygon_clockwise(polygon):
+		var temp = polygon.duplicate()
+		temp.reverse()
+		return temp
+	else:
+		return polygon
 
 func shape_to_polygon(collision_shape: CollisionShape2D) -> PackedVector2Array:
 	var shape = collision_shape.shape
@@ -89,3 +99,7 @@ func shape_to_polygon(collision_shape: CollisionShape2D) -> PackedVector2Array:
 		_:
 			push_error("Unsupported shape type: %s" % shape.get_class())
 			return PackedVector2Array()
+
+func polygons_are_touching(a: PackedVector2Array, b: PackedVector2Array): ## POLYGONS IN GLOBAL SPACE
+	var result = Geometry2D.intersect_polygons(counterclockwise_wind(a), counterclockwise_wind(b))
+	return !result.is_empty()

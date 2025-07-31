@@ -9,6 +9,7 @@ var selected_node: Node2D
 var selected_item_poly: PackedVector2Array
 var solar_panel_script = load("res://solar_panel.gd")
 var item_placeable: bool = false
+var placed_items: Array[Node2D] = []
 
 @onready var roof: Polygon2D = $Roof
 @onready var shop = $Shop
@@ -29,7 +30,18 @@ func _process(_delta: float) -> void:
 	if selected_node:
 		var selected_node_size: int = config.get(selected_item).get("size")
 		selected_item_poly = PolygonUtils.shape_to_polygon(selected_node.get_node('Area2D/CollisionPolygon2D'))
-		item_placeable = PolygonUtils.is_polygon_fully_contained(selected_item_poly, PolygonUtils.get_global_polygon(roof))
+		
+		# Transform roof polygon to global space
+		var roof_global_poly := PackedVector2Array()
+		var roof_xform := roof.get_global_transform()
+		for p in roof.polygon:
+			roof_global_poly.append(roof_xform * p)
+		
+		item_placeable = is_placement_legal(
+			selected_item_poly,
+			roof_global_poly,
+			placed_items.map(func(v): return PolygonUtils.shape_to_polygon(v.get_node("Area2D/CollisionPolygon2D")))
+		)
 
 		place_helper.show()
 		place_helper.size = Vector2(selected_node_size, selected_node_size)
@@ -38,6 +50,16 @@ func _process(_delta: float) -> void:
 
 func _on_shop_shop_ready() -> void:
 	print("Shop is ready!")
+
+func is_placement_legal(panel: PackedVector2Array, roof: PackedVector2Array, blockers) -> bool:
+	if !PolygonUtils.is_polygon_fully_contained(panel, roof):
+		return false
+
+	for v in blockers:
+		if PolygonUtils.polygons_are_touching(v, panel):
+			return false
+
+	return true
 
 func _on_shop_item_selected(item_name: String) -> void:
 	print("Item Selected! %s" % item_name)
@@ -80,6 +102,11 @@ func _on_shop_item_selected(item_name: String) -> void:
 	
 func _on_solar_panel_place():
 	if item_placeable:
-		print("yes")
+		selected_node.remove_child(place_helper)
+		selected_node.set_script(null)
+		placed_items.append(selected_node)
+		selected_node = null
+		selected_item = ""
+		selected_item_poly = PackedVector2Array()
 	else:
-		print("no")
+		pass # Potentially play error/bong noise?
