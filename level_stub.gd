@@ -94,6 +94,7 @@ func _on_shop_item_selected(item_name: String) -> void:
 	item_node.set_script(solar_panel_script)
 	
 	item_node.connect('placed', _on_solar_panel_place)
+	item_node.connect('deselected', _on_solar_panel_deselect)
 	item_node.add_child(place_helper)
 	
 	self.add_child(item_node)
@@ -110,3 +111,10 @@ func _on_solar_panel_place():
 		selected_item_poly = PackedVector2Array()
 	else:
 		pass # Potentially play error/bong noise?
+
+func _on_solar_panel_deselect():
+	selected_node.remove_child(place_helper)
+	selected_node.queue_free()
+	selected_node = null
+	selected_item = ""
+	selected_item_poly = PackedVector2Array()
