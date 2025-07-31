@@ -51,12 +51,12 @@ func _process(_delta: float) -> void:
 func _on_shop_shop_ready() -> void:
 	print("Shop is ready!")
 
-func is_placement_legal(panel: PackedVector2Array, roof: PackedVector2Array, blockers) -> bool:
-	if !PolygonUtils.is_polygon_fully_contained(panel, roof):
+func is_placement_legal(panel_polygon: PackedVector2Array, roof_polygon: PackedVector2Array, blockers) -> bool:
+	if !PolygonUtils.is_polygon_fully_contained(panel_polygon, roof_polygon):
 		return false
 
 	for v in blockers:
-		if PolygonUtils.polygons_are_touching(v, panel):
+		if PolygonUtils.polygons_are_touching(v, panel_polygon):
 			return false
 
 	return true
