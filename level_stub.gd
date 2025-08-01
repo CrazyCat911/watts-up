@@ -109,8 +109,12 @@ func _on_solar_panel_place():
 		selected_node = null
 		selected_item = ""
 		selected_item_poly = PackedVector2Array()
-	else:
-		pass # Potentially play error/bong noise?
+	else: # Potentially play error/bong noise?
+		selected_node.remove_child(place_helper)
+		selected_node.queue_free()
+		selected_node = null
+		selected_item = ""
+		selected_item_poly = PackedVector2Array()
 
 func _on_solar_panel_deselect():
 	selected_node.remove_child(place_helper)
