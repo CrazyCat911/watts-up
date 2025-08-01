@@ -8,6 +8,7 @@ var selected_item: String
 var selected_node: Node2D
 var selected_item_poly: PackedVector2Array
 var solar_panel_script = load("res://solar_panel.gd")
+var placed_solar_panel_script = load("res://solar_panel_placed.gd")
 var item_placeable: bool = false
 var placed_items: Array[Node2D] = []
 
@@ -104,7 +105,8 @@ func _on_shop_item_selected(item_name: String) -> void:
 func _on_solar_panel_place():
 	if item_placeable:
 		selected_node.remove_child(place_helper)
-		selected_node.set_script(null)
+		selected_node.set_script(placed_solar_panel_script)
+		selected_node.delete.connect(_on_solar_panel_delete)
 		placed_items.append(selected_node)
 		selected_node = null
 		selected_item = ""
@@ -122,3 +124,7 @@ func _on_solar_panel_deselect():
 	selected_node = null
 	selected_item = ""
 	selected_item_poly = PackedVector2Array()
+
+func _on_solar_panel_delete(node: Node2D) -> void:
+	placed_items.remove_at(placed_items.bsearch(node))
+	node.queue_free()
