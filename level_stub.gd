@@ -12,6 +12,10 @@ var placed_solar_panel_script = load("res://solar_panel_placed.gd")
 var item_placeable: bool = false
 var placed_items: Array[Node2D] = []
 
+var shop_data: Dictionary[String, int] = {
+	"solar_panel": 1
+}
+
 @onready var roof: Polygon2D = $Roof
 @onready var shop = $Shop
 @onready var place_helper: ColorRect = $PlaceHelper
@@ -25,7 +29,7 @@ var config: Dictionary = {
 
 func _ready() -> void:
 	self.remove_child(place_helper)
-	shop.init_shop({"solar_panel": 1}, {})
+	shop.init_shop(shop_data, {})
 	await shop.ready
 
 func _process(_delta: float) -> void:
@@ -63,6 +67,12 @@ func is_placement_legal(panel_polygon: PackedVector2Array, roof_polygon: PackedV
 func _on_shop_item_selected(item_name: String) -> void:
 	print("Item Selected! %s" % item_name)
 	selected_item = item_name
+
+	if shop_data[item_name] == 0:
+		return
+
+	shop_data[item_name] -= 1
+	shop.init_shop(shop_data, {})
 	
 	if selected_node:
 		selected_node.queue_free()
@@ -117,6 +127,9 @@ func _on_solar_panel_place():
 		selected_item_poly = PackedVector2Array()
 
 func _on_solar_panel_deselect():
+	shop_data[selected_item] += 1
+	shop.init_shop(shop_data, {})
+
 	selected_node.remove_child(place_helper)
 	selected_node.queue_free()
 	selected_node = null

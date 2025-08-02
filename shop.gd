@@ -10,8 +10,9 @@ var shopdata: Dictionary = {} ## Holds item data in the format {item_name: quant
 func init_shop(data: Dictionary, sprites: Dictionary) -> void:
 	var container_node: VBoxContainer = $VBoxContainer
 	
-	#for child in container_node.get_children():
-		#child.queue_free()
+	for child in container_node.get_children():
+		if child is Button:
+			child.queue_free()
 	
 	shopdata = data
 
