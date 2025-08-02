@@ -9,6 +9,7 @@ script = ExtResource("1_1bbum")
 
 [node name="Shop" parent="." instance=ExtResource("2_n2myd")]
 offset_left = 1024.0
+offset_top = 0.0
 offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 1
