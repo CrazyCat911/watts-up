@@ -26,6 +26,7 @@ var config: Dictionary = {
 func _ready() -> void:
 	self.remove_child(place_helper)
 	shop.init_shop({"solar_panel": 1}, {})
+	await shop.ready
 
 func _process(_delta: float) -> void:
 	if selected_node:
@@ -48,9 +49,6 @@ func _process(_delta: float) -> void:
 		place_helper.size = Vector2(selected_node_size, selected_node_size)
 		place_helper.position = - place_helper.size / 2
 		place_helper.color = COLOR_PLACEABLE if item_placeable else COLOR_UNPLACEABLE
-
-func _on_shop_shop_ready() -> void:
-	print("Shop is ready!")
 
 func is_placement_legal(panel_polygon: PackedVector2Array, roof_polygon: PackedVector2Array, blockers) -> bool:
 	if !PolygonUtils.is_polygon_fully_contained(panel_polygon, roof_polygon):
