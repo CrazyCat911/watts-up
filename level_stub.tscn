@@ -9,11 +9,7 @@ script = ExtResource("1_1bbum")
 
 [node name="Shop" parent="." instance=ExtResource("2_n2myd")]
 offset_left = 1024.0
-offset_top = 0.0
 offset_right = 1152.0
-offset_bottom = 648.0
-grow_horizontal = 1
-grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Roof" type="Polygon2D" parent="."]
@@ -27,4 +23,3 @@ polygon = PackedVector2Array(0, 0, 400, 0, 400, 400, 0, 400)
 z_index = 1
 
 [connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
-[connection signal="shop_ready" from="Shop" to="." method="_on_shop_shop_ready"]

@@ -4,11 +4,8 @@
 
 [node name="ScrollContainer" type="ScrollContainer"]
 custom_minimum_size = Vector2(128, 648)
-offset_top = 4.0
 offset_right = 128.0
-offset_bottom = 652.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = 648.0
 horizontal_scroll_mode = 0
 script = ExtResource("1_viryw")
 
