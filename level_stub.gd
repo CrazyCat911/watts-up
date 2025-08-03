@@ -102,6 +102,7 @@ func _on_shop_item_selected(item_name: String) -> void:
 	
 	item_node.set_script(solar_panel_script)
 	
+	item_node.item_type = item_name
 	item_node.connect('placed', _on_solar_panel_place)
 	item_node.connect('deselected', _on_solar_panel_deselect)
 	item_node.add_child(place_helper)
@@ -114,6 +115,7 @@ func _on_solar_panel_place():
 	if item_placeable:
 		selected_node.remove_child(place_helper)
 		selected_node.set_script(placed_solar_panel_script)
+		selected_node.item_type = selected_item
 		selected_node.delete.connect(_on_solar_panel_delete)
 		placed_items.append(selected_node)
 		selected_node = null
@@ -138,6 +140,9 @@ func _on_solar_panel_deselect():
 	selected_item = ""
 	selected_item_poly = PackedVector2Array()
 
-func _on_solar_panel_delete(node: Node2D) -> void:
+func _on_solar_panel_delete(node) -> void:
+	shop_data[node.item_type] += 1
+	shop.init_shop(shop_data, {})
+	
 	placed_items.remove_at(placed_items.bsearch(node))
 	node.queue_free()

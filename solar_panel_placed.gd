@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var item_type: String
 var mouse_inside: bool = false
 signal delete(node: Node2D)
 
