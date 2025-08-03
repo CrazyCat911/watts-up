@@ -156,7 +156,6 @@ func calculate_panel_production(placed_panels: Array[Node2D]) -> float:
 	var sum: float = 0.0
 	for panel in placed_panels:
 		var polygon: PackedVector2Array = panel.poly
-
 		sum += PolygonUtils.get_polygon_area(polygon) * 0.3
 
 	return sum
