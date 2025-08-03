@@ -37,6 +37,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Start!"
 script = ExtResource("1_d2nv2")
-level_select_scene = "res://levelselect.tscn"
+level_select_scene = "uid://dhcqofmd4c2om"
 
 [connection signal="pressed" from="Start" to="Start" method="_on_pressed"]

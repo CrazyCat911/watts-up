@@ -28,6 +28,6 @@ offset_bottom = 77.0
 theme_override_font_sizes/font_size = 50
 text = "Back"
 script = ExtResource("1_pfsfy")
-main_menu_scene = "res://mainmenu.tscn"
+main_menu_scene = "uid://buqqtve8thlpi"
 
 [connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
