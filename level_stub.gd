@@ -150,7 +150,7 @@ func _on_solar_panel_delete(node) -> void:
 func _on_calculate_button_pressed() -> void:
 	var label: Label = $Label
 
-	label.text = "Your solar panels produced %sKw" % calculate_panel_production(placed_items)
+	label.text = "Your solar panels produced %.1fKw" % calculate_panel_production(placed_items)
 
 func calculate_panel_production(placed_panels: Array[Node2D]) -> float:
 	var sum: float = 0.0
