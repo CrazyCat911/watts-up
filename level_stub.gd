@@ -103,8 +103,8 @@ func _on_shop_item_selected(item_name: String) -> void:
 	item_node.set_script(solar_panel_script)
 	
 	item_node.item_type = item_name
-	item_node.connect('placed', _on_solar_panel_place)
-	item_node.connect('deselected', _on_solar_panel_deselect)
+	item_node.placed.connect(_on_solar_panel_place)
+	item_node.deselected.connect(_on_solar_panel_deselect)
 	item_node.add_child(place_helper)
 	
 	self.add_child(item_node)
