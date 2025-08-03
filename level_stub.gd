@@ -146,3 +146,17 @@ func _on_solar_panel_delete(node) -> void:
 	
 	placed_items.remove_at(placed_items.bsearch(node))
 	node.queue_free()
+
+func _on_calculate_button_pressed() -> void:
+	var label: Label = $Label
+
+	label.text = "Your solar panels produced %sKw" % calculate_panel_production(placed_items)
+
+func calculate_panel_production(placed_panels: Array[Node2D]) -> float:
+	var sum: float = 0.0
+	for panel in placed_panels:
+		var polygon: PackedVector2Array = panel.poly
+
+		sum += PolygonUtils.get_polygon_area(polygon) * 0.3
+
+	return sum

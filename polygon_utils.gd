@@ -103,3 +103,20 @@ func shape_to_polygon(collision_shape: CollisionShape2D) -> PackedVector2Array:
 func polygons_are_touching(a: PackedVector2Array, b: PackedVector2Array): ## POLYGONS IN GLOBAL SPACE
 	var result = Geometry2D.intersect_polygons(counterclockwise_wind(a), counterclockwise_wind(b))
 	return !result.is_empty()
+
+func get_polygon_area(polygon_points: PackedVector2Array) -> float:
+	var area = 0.0
+	var triangles_indices = Geometry2D.triangulate_polygon(polygon_points)
+
+	# Iterate through the triangle indices (each triangle has 3 indices)
+	for i in range(0, triangles_indices.size(), 3):
+		var p1 = polygon_points[triangles_indices[i]]
+		var p2 = polygon_points[triangles_indices[i + 1]]
+		var p3 = polygon_points[triangles_indices[i + 2]]
+
+		# Calculate triangle area using the shoelace formula (or cross product)
+		# For 2D, this is 0.5 * |(x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2))|
+		var triangle_area = 0.5 * abs(p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y))
+		area += triangle_area
+
+	return area

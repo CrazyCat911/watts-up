@@ -22,4 +22,18 @@ polygon = PackedVector2Array(0, 0, 400, 0, 400, 400, 0, 400)
 [node name="PlaceHelper" type="ColorRect" parent="."]
 z_index = 1
 
+[node name="CalculateButton" type="Button" parent="."]
+offset_top = 616.0
+offset_right = 200.0
+offset_bottom = 648.0
+text = "Calculate Energy Output"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 208.0
+offset_top = 616.0
+offset_right = 1152.0
+offset_bottom = 648.0
+vertical_alignment = 1
+
 [connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
+[connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]
