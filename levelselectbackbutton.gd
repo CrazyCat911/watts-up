@@ -1,6 +1,6 @@
 extends Button
 
-@export var main_menu_scene: String
+@export_file("*.tscn") var main_menu_scene: String
 
 
 func _on_pressed() -> void:
