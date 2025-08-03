@@ -120,6 +120,8 @@ func _on_solar_panel_place():
 		selected_item = ""
 		selected_item_poly = PackedVector2Array()
 	else: # Potentially play error/bong noise?
+		shop_data[selected_item] += 1
+		shop.init_shop(shop_data, {})
 		selected_node.remove_child(place_helper)
 		selected_node.queue_free()
 		selected_node = null
