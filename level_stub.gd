@@ -10,7 +10,7 @@ var selected_item_poly: PackedVector2Array
 var solar_panel_script = load("res://solar_panel.gd")
 var placed_solar_panel_script = load("res://solar_panel_placed.gd")
 var item_placeable: bool = false
-var placed_items: Array[Node2D] = []
+var placed_items: Array[PackedVector2Array] = []
 
 var shop_data: Dictionary[String, int] = {
 	"solar_panel": 2
@@ -46,7 +46,7 @@ func _process(_delta: float) -> void:
 		item_placeable = is_placement_legal(
 			selected_item_poly,
 			roof_global_poly,
-			placed_items.map(func(v): return PolygonUtils.shape_to_polygon(v.get_node("Area2D/CollisionPolygon2D")))
+			placed_items
 		)
 
 		place_helper.show()
@@ -107,8 +107,8 @@ func _on_shop_item_selected(item_name: String) -> void:
 	item_node.deselected.connect(_on_solar_panel_deselect)
 	item_node.add_child(place_helper)
 	
-	self.add_child(item_node)
 	selected_node = item_node
+	self.add_child(item_node)
 
 	
 func _on_solar_panel_place():
@@ -117,7 +117,7 @@ func _on_solar_panel_place():
 		selected_node.set_script(placed_solar_panel_script)
 		selected_node.item_type = selected_item
 		selected_node.delete.connect(_on_solar_panel_delete)
-		placed_items.append(selected_node)
+		placed_items.append(selected_node.poly)
 		selected_node = null
 		selected_item = ""
 		selected_item_poly = PackedVector2Array()
@@ -144,7 +144,12 @@ func _on_solar_panel_delete(node) -> void:
 	shop_data[node.item_type] += 1
 	shop.init_shop(shop_data, {})
 	
-	placed_items.remove_at(placed_items.bsearch(node))
+	var index := placed_items.find(node.poly)
+	if index != -1:
+		print(placed_items[index])
+		placed_items.remove_at(index)
+	else:
+		print("Polygon not found in placed_items")
 	node.queue_free()
 
 func _on_calculate_button_pressed() -> void:
@@ -152,10 +157,9 @@ func _on_calculate_button_pressed() -> void:
 
 	label.text = "Your solar panels produced %.1fKw" % calculate_panel_production(placed_items)
 
-func calculate_panel_production(placed_panels: Array[Node2D]) -> float:
+func calculate_panel_production(placed_panels: Array[PackedVector2Array]) -> float:
 	var sum: float = 0.0
 	for panel in placed_panels:
-		var polygon: PackedVector2Array = panel.poly
-		sum += PolygonUtils.get_polygon_area(polygon) * 0.3
+		sum += PolygonUtils.get_polygon_area(panel) * 0.3
 
 	return sum
