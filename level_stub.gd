@@ -83,7 +83,7 @@ func _on_shop_item_selected(item_name: String) -> void:
 	var item_collision := Area2D.new()
 	var item_collision_shape := CollisionShape2D.new()
 	var item_shape := RectangleShape2D.new()
-	var item_size: Vector2 = item_config.get("size", Vector2(0,0))
+	var item_size: Vector2 = item_config.get("size", Vector2.ZERO)
 	var item_sprite: Sprite2D = Sprite2D.new()
 	var item_texture: Texture2D = item_config.get("texture")
 	var texture_size: Vector2 = item_texture.get_size()
