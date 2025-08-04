@@ -65,10 +65,10 @@ func is_placement_legal(panel_polygon: PackedVector2Array, roof_polygon: PackedV
 	return true
 
 func _on_shop_item_selected(item_name: String) -> void:
-	print("Item Selected! %s" % item_name)
 	selected_item = item_name
 
 	if shop_data[item_name] == 0:
+		print("Item Selected! %s" % item_name)
 		return
 
 	shop_data[item_name] -= 1
@@ -146,10 +146,10 @@ func _on_solar_panel_delete(node) -> void:
 	
 	var index := placed_items.find(node.poly)
 	if index != -1:
-		print(placed_items[index])
+		print("Delete %s" % placed_items[index])
 		placed_items.remove_at(index)
 	else:
-		print("Polygon not found in placed_items")
+		push_error("Polygon %s not found in placed_items" % node.poly)
 	node.queue_free()
 
 func _on_calculate_button_pressed() -> void:

@@ -14,7 +14,7 @@ func _init() -> void:
 
 	poly = PolygonUtils.shape_to_polygon($Area2D/CollisionPolygon2D)
 	
-	print(poly)
+	print("Placed %s" % poly)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("click"):

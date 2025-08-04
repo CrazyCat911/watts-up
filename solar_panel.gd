@@ -9,7 +9,7 @@ signal deselected() ## Signals when the panel is deselected
 func _ready() -> void:
 	poly = PolygonUtils.shape_to_polygon($Area2D/CollisionPolygon2D)
 	
-	print(poly)
+	print("Adding %s" % poly)
 
 func _process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
