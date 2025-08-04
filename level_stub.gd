@@ -23,7 +23,7 @@ var shop_data: Dictionary[String, int] = {
 var config: Dictionary = {
 	"solar_panel": {
 		"texture": load("res://assets/solar_panel.png"),
-		"size": 100,
+		"size": Vector2(100, 170),
 	},
 }
 
@@ -34,7 +34,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if selected_node:
-		var selected_node_size: int = config.get(selected_item).get("size")
+		var selected_node_size: Vector2 = config.get(selected_item).get("size")
 		selected_item_poly = PolygonUtils.shape_to_polygon(selected_node.get_node('Area2D/CollisionPolygon2D'))
 		
 		# Transform roof polygon to global space
@@ -50,7 +50,7 @@ func _process(_delta: float) -> void:
 		)
 
 		place_helper.show()
-		place_helper.size = Vector2(selected_node_size, selected_node_size)
+		place_helper.size = selected_node_size
 		place_helper.position = - place_helper.size / 2
 		place_helper.color = COLOR_PLACEABLE if item_placeable else COLOR_UNPLACEABLE
 
@@ -83,11 +83,11 @@ func _on_shop_item_selected(item_name: String) -> void:
 	var item_collision := Area2D.new()
 	var item_collision_shape := CollisionShape2D.new()
 	var item_shape := RectangleShape2D.new()
-	var item_size: int = item_config.get("size", 0)
+	var item_size: Vector2 = item_config.get("size", Vector2(0,0))
 	var item_sprite: Sprite2D = Sprite2D.new()
 	var item_texture: Texture2D = item_config.get("texture")
 	var texture_size: Vector2 = item_texture.get_size()
-	item_shape.size = Vector2(item_size, item_size)
+	item_shape.size = item_size
 	item_collision_shape.shape = item_shape
 
 	item_sprite.texture = item_config.get("texture")
