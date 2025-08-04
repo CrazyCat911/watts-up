@@ -13,7 +13,7 @@ var item_placeable: bool = false
 var placed_items: Array[Node2D] = []
 
 var shop_data: Dictionary[String, int] = {
-	"solar_panel": 1
+	"solar_panel": 2
 }
 
 @onready var roof: Polygon2D = $Roof
