@@ -18,3 +18,8 @@ func _process(_delta: float) -> void:
 		placed.emit()
 	if Input.is_action_just_pressed("deselect"):
 		deselected.emit()
+	if Input.is_action_just_pressed("rotate_c"):
+		self.rotate(PI / 2)
+	if Input.is_action_just_pressed("rotate_cc"):
+		self.rotate(-PI / 2)
+	
