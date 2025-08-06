@@ -120,3 +120,17 @@ func get_polygon_area(polygon_points: PackedVector2Array) -> float:
 		area += triangle_area
 
 	return area
+
+func overlapping_area(poly_a: PackedVector2Array, poly_b: PackedVector2Array) -> float:
+	poly_a = counterclockwise_wind(poly_a)
+	poly_b = counterclockwise_wind(poly_b)
+
+	# Get the intersection polygon(s)
+	var intersection = Geometry2D.intersect_polygons(poly_a, poly_b)
+	if intersection.is_empty():
+		return 0.0
+
+	var total_area = 0.0
+	for poly in intersection:
+		total_area += get_polygon_area(poly)
+	return total_area

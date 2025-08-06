@@ -3,6 +3,7 @@ extends Node2D
 # Constants
 const COLOR_PLACEABLE: Color = Color(0, 1, 0, 0.5)
 const COLOR_UNPLACEABLE: Color = Color(1, 0, 0, 0.5)
+const COLOR_SHADOW: Color = Color(0.5, 0.5, 0.5, 0.8)
 
 var selected_item: String
 var selected_node: Node2D
@@ -19,6 +20,7 @@ var shop_data: Dictionary[String, int] = {
 @onready var roof: Polygon2D = $Roof
 @onready var shop = $Shop
 @onready var place_helper: ColorRect = $PlaceHelper
+@onready var shadows = $Shadows.get_children()
 
 var config: Dictionary = {
 	"solar_panel": {
@@ -30,6 +32,10 @@ var config: Dictionary = {
 func _ready() -> void:
 	self.remove_child(place_helper)
 	shop.init_shop(shop_data, {})
+
+	for shadow in shadows:
+		shadow.color = COLOR_SHADOW
+
 	await shop.ready
 
 func _process(_delta: float) -> void:
@@ -160,6 +166,11 @@ func _on_calculate_button_pressed() -> void:
 func calculate_panel_production(placed_panels: Array[PackedVector2Array]) -> float:
 	var sum: float = 0.0
 	for panel in placed_panels:
-		sum += PolygonUtils.get_polygon_area(panel) * 0.3
+		var to_add_area: float = PolygonUtils.get_polygon_area(panel)
+
+		for shadow: Polygon2D in shadows:
+			to_add_area -= PolygonUtils.overlapping_area(panel, PolygonUtils.get_global_polygon(shadow))
+
+		sum += to_add_area * 0.3
 
 	return sum

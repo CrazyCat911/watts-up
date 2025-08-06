@@ -35,5 +35,11 @@ offset_right = 1152.0
 offset_bottom = 648.0
 vertical_alignment = 1
 
+[node name="Shadows" type="Node" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Shadows"]
+position = Vector2(98, -72)
+polygon = PackedVector2Array(485, 340, 568, 487, 577, 245)
+
 [connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
 [connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]
