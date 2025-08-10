@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://tvphnj05quxv"]
+
+[ext_resource type="Script" uid="uid://ds1x130i0u34n" path="res://levels/3.gd" id="1_pkpa4"]
+[ext_resource type="PackedScene" uid="uid://b6mck83s6vfmw" path="res://shop.tscn" id="2_lgojw"]
+[ext_resource type="Texture2D" uid="uid://dckwk3brfohgp" path="res://assets/roof-tiles-4096x4096.png" id="3_y72uh"]
+
+[node name="LevelStub" type="Node2D"]
+script = ExtResource("1_pkpa4")
+
+[node name="Shop" parent="." instance=ExtResource("2_lgojw")]
+offset_left = 1024.0
+offset_right = 1152.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Roof" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(392, 64)
+texture = ExtResource("3_y72uh")
+texture_scale = Vector2(50, 50)
+polygon = PackedVector2Array(-248, 144, 400, 144, 400, 400, -248, 400)
+
+[node name="Blockers" type="Node" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Blockers"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(312, 264, 312, 328, 384, 328, 384, 256)
+
+[node name="PlaceHelper" type="ColorRect" parent="."]
+z_index = 1
+
+[node name="CalculateButton" type="Button" parent="."]
+offset_top = 616.0
+offset_right = 200.0
+offset_bottom = 648.0
+text = "Calculate Energy Output"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 208.0
+offset_top = 616.0
+offset_right = 1152.0
+offset_bottom = 648.0
+vertical_alignment = 1
+
+[node name="Shadows" type="Node" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Shadows"]
+polygon = PackedVector2Array(312, 264, 312, 328, 384, 328, 280, 400, 200, 392, 208, 336)
+
+[connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
+[connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]
