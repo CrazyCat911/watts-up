@@ -19,7 +19,7 @@ texture = ExtResource("3_jx2sw")
 texture_scale = Vector2(50, 50)
 polygon = PackedVector2Array(-328, -8, 400, -8, 400, 400, -320, 400)
 
-[node name="Blockers" type="Node" parent="."]
+[node name="Blockers" type="Node2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="Blockers"]
 position = Vector2(384, -88)
@@ -42,7 +42,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 vertical_alignment = 1
 
-[node name="Shadows" type="Node" parent="."]
+[node name="Shadows" type="Node2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="Shadows"]
 polygon = PackedVector2Array(696, 176, 392, 176, 392, 240, 696, 240)

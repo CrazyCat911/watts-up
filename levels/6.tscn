@@ -17,9 +17,9 @@ texture_repeat = 2
 position = Vector2(392, 64)
 texture = ExtResource("3_vneg5")
 texture_scale = Vector2(50, 50)
-polygon = PackedVector2Array(-328, -56, -112, -56, -112, 96, 104, 96, 104, 400, -328, 400)
+polygon = PackedVector2Array(-264, 0, -72, 0, -72, 192, 120, 192, 120, 384, -264, 384)
 
-[node name="Blockers" type="Node" parent="."]
+[node name="Blockers" type="Node2D" parent="."]
 
 [node name="PlaceHelper" type="ColorRect" parent="."]
 z_index = 1
@@ -37,7 +37,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 vertical_alignment = 1
 
-[node name="Shadows" type="Node" parent="."]
+[node name="Shadows" type="Node2D" parent="."]
 
 [connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
 [connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]

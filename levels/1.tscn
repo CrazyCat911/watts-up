@@ -35,7 +35,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 vertical_alignment = 1
 
-[node name="Shadows" type="Node" parent="."]
+[node name="Shadows" type="Node2D" parent="."]
 
 [connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
 [connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]
