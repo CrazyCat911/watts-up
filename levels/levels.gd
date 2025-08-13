@@ -13,9 +13,7 @@ var placed_solar_panel_script = load("res://solar_panel_placed.gd")
 var item_placeable: bool = false
 var placed_items: Array[PackedVector2Array] = []
 
-var shop_data: Dictionary[String, int] = {
-	"solar_panel": 6
-}
+@onready var shop_data: Dictionary = self.get_meta("shop_config")
 
 @onready var roof: Polygon2D = $Roof
 @onready var shop = $Shop
@@ -162,7 +160,7 @@ func _on_solar_panel_delete(node) -> void:
 func _on_calculate_button_pressed() -> void:
 	var label: Label = $Label
 
-	label.text = "Your solar panels produced %.1fKw" % calculate_panel_production(placed_items)
+	label.text = "Your solar panels produced %.1f watts" % calculate_panel_production(placed_items)
 
 func calculate_panel_production(placed_panels: Array[PackedVector2Array]) -> float:
 	var sum: float = 0.0
@@ -172,6 +170,6 @@ func calculate_panel_production(placed_panels: Array[PackedVector2Array]) -> flo
 		for shadow: Polygon2D in shadows:
 			to_add_area -= PolygonUtils.overlapping_area(panel, PolygonUtils.get_global_polygon(shadow))
 
-		sum += to_add_area * 0.3
+		sum += (to_add_area / (170 * 100)) * 300
 
 	return sum

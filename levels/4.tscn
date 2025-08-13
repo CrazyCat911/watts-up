@@ -1,11 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://csnhscet55jjp"]
 
-[ext_resource type="Script" uid="uid://twp2crldnn6a" path="res://levels/4.gd" id="1_bgnt5"]
+[ext_resource type="Script" uid="uid://dwn5yrsmtx65l" path="res://levels/levels.gd" id="1_bgnt5"]
 [ext_resource type="PackedScene" uid="uid://b6mck83s6vfmw" path="res://shop.tscn" id="2_n5yqs"]
 [ext_resource type="Texture2D" uid="uid://dckwk3brfohgp" path="res://assets/roof-tiles-4096x4096.png" id="3_553xd"]
 
 [node name="LevelStub" type="Node2D"]
 script = ExtResource("1_bgnt5")
+metadata/shop_config = {
+"solar_panel": 6
+}
 
 [node name="Shop" parent="." instance=ExtResource("2_n5yqs")]
 offset_left = 1024.0
