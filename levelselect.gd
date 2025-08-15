@@ -1,0 +1,31 @@
+extends Control
+
+var button_script: Script = load("uid://d2rkbr7oojmlu") # res://send_to_scene_button.gd
+
+@export_file("*.tscn") var main_menu_scene: String
+@onready var grid_container: GridContainer = $GridContainer
+
+func _ready() -> void:
+	var files: Array[String] = []
+	var dir := DirAccess.open("res://levels/")
+	
+	if dir:
+		dir.list_dir_begin()
+		var file_name := dir.get_next()
+		
+		while file_name:
+			if not dir.current_is_dir():
+				files.append(file_name)
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	
+	for file in files:
+		var button = Button.new()
+		button.set_meta("scene", "res://levels/%s" % file)
+		button.text = file.get_file().get_basename()
+		button.set_script(button_script)
+		
+		grid_container.add_child(button)
+	
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file(main_menu_scene)

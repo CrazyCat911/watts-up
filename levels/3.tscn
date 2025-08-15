@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhq6yjsuj0i"]
 
-[ext_resource type="PackedScene" uid="uid://3ylg03rwp8ur" path="res://levels/level.tscn" id="1_x6w4t"]
+[ext_resource type="PackedScene" uid="uid://3ylg03rwp8ur" path="res://level.tscn" id="1_x6w4t"]
 
 [node name="Level" instance=ExtResource("1_x6w4t")]
 metadata/shop_config = {
@@ -8,7 +8,7 @@ metadata/shop_config = {
 }
 
 [node name="Roof" parent="." index="1"]
-polygon = PackedVector2Array(-240, 144, 400, 144, 400, 336, -240, 336)
+polygon = PackedVector2Array(-240, 80, 400, 80, 400, 336, -240, 336)
 
 [node name="Polygon2D" type="Polygon2D" parent="Blockers" index="0"]
 position = Vector2(88, -24)

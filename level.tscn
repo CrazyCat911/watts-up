@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://3ylg03rwp8ur"]
 
-[ext_resource type="Script" uid="uid://dwn5yrsmtx65l" path="res://levels/levels.gd" id="1_cwqvt"]
+[ext_resource type="Script" uid="uid://dwn5yrsmtx65l" path="res://levels.gd" id="1_cwqvt"]
 [ext_resource type="PackedScene" uid="uid://b6mck83s6vfmw" path="res://shop.tscn" id="1_hjsbj"]
 [ext_resource type="Texture2D" uid="uid://dckwk3brfohgp" path="res://assets/roof-tiles-4096x4096.png" id="2_cwqvt"]
 
@@ -15,6 +15,7 @@ offset_left = 1024.0
 offset_right = 1152.0
 
 [node name="Roof" type="Polygon2D" parent="."]
+z_index = -3
 texture_repeat = 2
 position = Vector2(304, 112)
 texture = ExtResource("2_cwqvt")
@@ -38,8 +39,17 @@ offset_bottom = 648.0
 vertical_alignment = 1
 
 [node name="Blockers" type="Node2D" parent="."]
+z_index = 3
 
 [node name="Shadows" type="Node2D" parent="."]
+z_index = 3
+
+[node name="BackButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 42
+text = "←"
 
 [connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
 [connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

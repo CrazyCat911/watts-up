@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhcqofmd4c2om"]
+[gd_scene load_steps=3 format=3 uid="uid://dhcqofmd4c2om"]
 
-[ext_resource type="Script" uid="uid://d8ud8a54un33" path="res://levelselectbackbutton.gd" id="1_pfsfy"]
+[ext_resource type="Script" uid="uid://d8ud8a54un33" path="res://levelselect.gd" id="1_pfsfy"]
+[ext_resource type="Script" uid="uid://d2rkbr7oojmlu" path="res://send_to_scene_button.gd" id="2_8h15g"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -9,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pfsfy")
+main_menu_scene = "uid://buqqtve8thlpi"
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -27,7 +30,13 @@ offset_right = 123.0
 offset_bottom = 77.0
 theme_override_font_sizes/font_size = 50
 text = "Back"
-script = ExtResource("1_pfsfy")
-main_menu_scene = "uid://buqqtve8thlpi"
+script = ExtResource("2_8h15g")
+metadata/scene = "res://mainmenu.tscn"
 
-[connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 960.0
+offset_bottom = 576.0
+columns = 5

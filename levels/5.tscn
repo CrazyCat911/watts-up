@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cm0iyperv5c3f"]
 
-[ext_resource type="PackedScene" uid="uid://3ylg03rwp8ur" path="res://levels/level.tscn" id="1_gtn2b"]
+[ext_resource type="PackedScene" uid="uid://3ylg03rwp8ur" path="res://level.tscn" id="1_gtn2b"]
 
 [node name="Level" instance=ExtResource("1_gtn2b")]
 metadata/shop_config = {
