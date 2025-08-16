@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://db7fxaxt1ut6a"]
+
+[ext_resource type="PackedScene" uid="uid://bdihmyv7p24xa" path="res://prelevel.tscn" id="1_osgmb"]
+
+[node name="Prelevel" instance=ExtResource("1_osgmb")]
+
+[node name="Text" parent="." index="0"]
+text = "WHAT KIND OF ROOF SHAPE IS THAT?!?!?!?!??!"
+
+[node name="Title" parent="." index="1"]
+text = "Level 6 - The architect is crazy"
+
+[node name="Button" parent="." index="2"]
+metadata/scene = "res://levels/6.tscn"

@@ -7,7 +7,8 @@ var button_script: Script = load("uid://d2rkbr7oojmlu") # res://send_to_scene_bu
 
 func _ready() -> void:
 	var files: Array[String] = []
-	var dir := DirAccess.open("res://levels/")
+	const SEND_TO_FOLDER: String = "res://prelevel/"
+	var dir := DirAccess.open(SEND_TO_FOLDER)
 	
 	if dir:
 		dir.list_dir_begin()
@@ -21,10 +22,9 @@ func _ready() -> void:
 	
 	for file in files:
 		var button = Button.new()
-		button.set_meta("scene", "res://levels/%s" % file)
+		button.set_meta("scene", SEND_TO_FOLDER + file)
 		button.text = file.get_file().get_basename()
 		button.set_script(button_script)
-		
 		grid_container.add_child(button)
 	
 func _on_back_pressed() -> void:

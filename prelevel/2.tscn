@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2wxva6rlfphr"]
+
+[ext_resource type="PackedScene" uid="uid://bdihmyv7p24xa" path="res://prelevel.tscn" id="1_y1qys"]
+
+[node name="Prelevel" instance=ExtResource("1_y1qys")]
+
+[node name="Text" parent="." index="0"]
+text = "In this level, you need to avoid the chimney. The chimney is really annoying becuase you cannot place panels onto it. Why does this house have a fireplace anyway?
+
+Solar panels work through the photovoltaic (PV) effect, where 2 types of semiconductors, n-type and p-type, create an electric field when joined together. N-type semiconductors have extra electrons due to phosphorus replacing some of the silicon atoms. P-type semiconductors have “holes”, (missing electrons) due to boron, which has less electrons than silicon, replacing some of the silicon atoms. When they meet, electrons from the n-type fill holes in the p-type, creating a depletion zone with a built-in electric field. When sunlight (or more accurately, photons) strikes the depletion zone, electrons are knocked free, and due to the charge of the depletion zone, the electrons move to the n-type layer, while the holes move to the p-type layer. If both layers are connected with a circuit, this can generate electricity."
+
+[node name="Title" parent="." index="1"]
+text = "Level 2 - Chimney Challenge"
+
+[node name="Button" parent="." index="2"]
+metadata/scene = "res://levels/2.tscn"

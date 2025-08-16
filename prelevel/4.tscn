@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyxys0yx02pqd"]
+
+[ext_resource type="PackedScene" uid="uid://bdihmyv7p24xa" path="res://prelevel.tscn" id="1_d1fsm"]
+
+[node name="Prelevel" instance=ExtResource("1_d1fsm")]
+
+[node name="Text" parent="." index="0"]
+text = "ANOTHER SHADOW!"
+
+[node name="Title" parent="." index="1"]
+text = "Level 4 - Another Day, Another Shadow"
+
+[node name="Button" parent="." index="2"]
+metadata/scene = "res://levels/4.tscn"

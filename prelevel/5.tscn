@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6pd7011hcueq"]
+
+[ext_resource type="PackedScene" uid="uid://bdihmyv7p24xa" path="res://prelevel.tscn" id="1_wj6t5"]
+
+[node name="Prelevel" instance=ExtResource("1_wj6t5")]
+
+[node name="Text" parent="." index="0"]
+text = "I don't know who designed this roof, it probably wasn't me. What kind of person would want an \"L\"-shaped roof anyway?"
+
+[node name="Title" parent="." index="1"]
+text = "Level 5 - Wierd Roof"
+
+[node name="Button" parent="." index="2"]
+metadata/scene = "res://levels/5.tscn"
