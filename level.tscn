@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://3ylg03rwp8ur"]
 
-[ext_resource type="Script" uid="uid://dwn5yrsmtx65l" path="res://levels.gd" id="1_cwqvt"]
+[ext_resource type="Script" uid="uid://dwn5yrsmtx65l" path="res://level.gd" id="1_cwqvt"]
 [ext_resource type="PackedScene" uid="uid://b6mck83s6vfmw" path="res://shop.tscn" id="1_hjsbj"]
 [ext_resource type="Texture2D" uid="uid://dckwk3brfohgp" path="res://assets/roof-tiles-4096x4096.png" id="2_cwqvt"]
 
