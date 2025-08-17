@@ -4,5 +4,8 @@
 
 [node name="Prelevel" instance=ExtResource("1_ojuq7")]
 
-[node name="Text" parent="." index="0"]
-text = "Welcome to Watt's Up! This is a game about placing solar panels on a roof to maximise energy production. This is the first level, so don't expect it to be hard or anything. To place a solar panel, simply select it from the shop. It will automatically move with your mouse cursor. To place it, you can click when it is fully over the roof tiles (the panel will turn green to show this). You can rotate panels 90 degrees using arrow keys or by scrolling. To delete a panel, simply click on it after it has been placed. To calculate how much energy you produced, click on the \"Calculate Energy Production\" button in the lower left corner of the screen."
+[node name="Text" parent="." index="1"]
+text = "Welcome to Watt's Up!
+This is a game about placing solar panels on a roof to maximise energy production.
+This is the first level, so don't expect it to be hard. First, select a solar panel from the store on the right. It will automatically move with your mouse cursor. To place it, you can click when it is fully over the roof tiles (when the panel is green). You can rotate panels 90 degrees using arrow keys or by scrolling. Click on a placed panel to remove it.
+Click the \"Calculate Energy Production\" button in the lower left corner to see how much energy is generated."
