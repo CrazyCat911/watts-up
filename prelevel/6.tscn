@@ -5,7 +5,8 @@
 [node name="Prelevel" instance=ExtResource("1_osgmb")]
 
 [node name="Text" parent="." index="0"]
-text = "WHAT KIND OF ROOF SHAPE IS THAT?!?!?!?!??!"
+text = "WHAT KIND OF ROOF SHAPE IS THAT?!?!?!?!??!
+Did you know that solar energy farms use solar panels that automatically face the sun for higher energy production?"
 
 [node name="Title" parent="." index="1"]
 text = "Level 6 - The architect is crazy"
