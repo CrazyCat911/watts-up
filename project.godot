@@ -13,6 +13,8 @@ config_version=5
 config/name="Watt's Up?"
 run/main_scene="uid://buqqtve8thlpi"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0.201871, 0.485955, 0.59375, 1)
+boot_splash/image="uid://du0grpy0vryc7"
 config/icon="res://assets/solar_panel.png"
 
 [autoload]
