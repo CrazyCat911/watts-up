@@ -25,9 +25,11 @@ func _ready() -> void:
 	
 	for file in files:
 		var button = Button.new()
+		var file_basename = file.get_file().get_basename()
 		button.set_meta("scene", SEND_TO_FOLDER + file)
-		button.text = file.get_file().get_basename()
+		button.text = file_basename
 		button.theme = level_select_button_theme
+		button.icon = load("res://assets/level_start_icons/%s.png" % file_basename)
 		button.set_script(button_script)
 		grid_container.add_child(button)
 	
