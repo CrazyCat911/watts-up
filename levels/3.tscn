@@ -1,19 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhq6yjsuj0i"]
+[gd_scene load_steps=3 format=3 uid="uid://bhq6yjsuj0i"]
 
 [ext_resource type="PackedScene" uid="uid://3ylg03rwp8ur" path="res://level.tscn" id="1_x6w4t"]
+[ext_resource type="Texture2D" uid="uid://c553ukldwndvt" path="res://assets/chimney.png" id="2_4l4ro"]
 
 [node name="Level" instance=ExtResource("1_x6w4t")]
 metadata/shop_config = {
 "solar_panel": 5
 }
 
-[node name="Roof" parent="." index="1"]
-polygon = PackedVector2Array(-240, 80, 400, 80, 400, 336, -240, 336)
+[node name="Roof" parent="." index="2"]
+polygon = PackedVector2Array(-240, 72, 400, 72, 400, 336, -240, 336)
 
 [node name="Polygon2D" type="Polygon2D" parent="Blockers" index="0"]
 position = Vector2(88, -24)
-color = Color(1, 0, 0, 1)
-polygon = PackedVector2Array(128, 320, 192, 320, 192, 376, 128, 376)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(128, 312, 192, 312, 192, 376, 128, 376)
 
 [node name="Polygon2D" type="Polygon2D" parent="Shadows" index="0"]
-polygon = PackedVector2Array(216, 296, 216, 352, 280, 352, 184, 448, 128, 448, 128, 400)
+polygon = PackedVector2Array(216, 288, 216, 352, 280, 352, 184, 448, 128, 448, 128, 392)
+
+[node name="Chimney" type="Sprite2D" parent="." index="8"]
+position = Vector2(248, 320)
+scale = Vector2(0.112676, 0.112676)
+texture = ExtResource("2_4l4ro")

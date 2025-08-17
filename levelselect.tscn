@@ -13,6 +13,15 @@ grow_vertical = 2
 script = ExtResource("1_pfsfy")
 main_menu_scene = "uid://buqqtve8thlpi"
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.486275, 0.592157, 1)
+
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 10
@@ -35,8 +44,6 @@ metadata/scene = "res://mainmenu.tscn"
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 128.0
-offset_right = 960.0
-offset_bottom = 576.0
-columns = 5
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 3

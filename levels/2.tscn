@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4gqh4264g86t"]
+[gd_scene load_steps=3 format=3 uid="uid://c4gqh4264g86t"]
 
 [ext_resource type="PackedScene" uid="uid://3ylg03rwp8ur" path="res://level.tscn" id="1_cmp6e"]
+[ext_resource type="Texture2D" uid="uid://c553ukldwndvt" path="res://assets/chimney.png" id="2_tlvj4"]
 
 [node name="Level" instance=ExtResource("1_cmp6e")]
 
 [node name="Polygon2D" type="Polygon2D" parent="Blockers" index="0"]
-color = Color(1, 0, 0, 1)
+color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(576, 112, 576, 240, 704, 240, 704, 112)
+
+[node name="Chimney" type="Sprite2D" parent="." index="8"]
+position = Vector2(640, 176)
+scale = Vector2(0.225352, 0.225352)
+texture = ExtResource("2_tlvj4")

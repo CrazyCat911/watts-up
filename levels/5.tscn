@@ -7,6 +7,6 @@ metadata/shop_config = {
 "solar_panel": 6
 }
 
-[node name="Roof" parent="." index="1"]
+[node name="Roof" parent="." index="2"]
 position = Vector2(304, 128)
 polygon = PackedVector2Array(0, 0, 208, 0, 208, 192, 400, 192, 400, 384, 0, 384)
