@@ -20,7 +20,9 @@ var placed_items: Array[PackedVector2Array] = []
 @onready var place_helper: ColorRect = $PlaceHelper
 @onready var shadows = $Shadows.get_children()
 @onready var blockers = $Blockers.get_children()
-@onready var panel_place_noise: AudioStreamPlayer  = $PanelPlaceNoise
+@onready var panel_place_noise: AudioStreamPlayer = $PanelPlaceNoise
+@onready var score_noise: AudioStreamPlayer = $ScoreNoise
+@onready var label: Label = $Label
 
 var config: Dictionary = {
 	"solar_panel": {
@@ -127,7 +129,7 @@ func _on_solar_panel_place():
 		selected_node = null
 		selected_item = ""
 		selected_item_poly = PackedVector2Array()
-		panel_place_noise.play(0.0)
+		panel_place_noise.play()
 	else: # Potentially play error/bong noise?
 		shop_data[selected_item] += 1
 		shop.init_shop(shop_data, {})
@@ -160,8 +162,7 @@ func _on_solar_panel_delete(node) -> void:
 	node.queue_free()
 
 func _on_calculate_button_pressed() -> void:
-	var label: Label = $Label
-
+	score_noise.play()
 	label.text = "Your solar panels produced %.1f watts" % calculate_panel_production(placed_items)
 
 func calculate_panel_production(placed_panels: Array[PackedVector2Array]) -> float:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3ylg03rwp8ur"]
+[gd_scene load_steps=8 format=3 uid="uid://3ylg03rwp8ur"]
 
 [ext_resource type="Script" uid="uid://dwn5yrsmtx65l" path="res://level.gd" id="1_cwqvt"]
 [ext_resource type="PackedScene" uid="uid://b6mck83s6vfmw" path="res://shop.tscn" id="1_hjsbj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dckwk3brfohgp" path="res://assets/roof-tiles-4096x4096.png" id="2_cwqvt"]
 [ext_resource type="Script" uid="uid://d2rkbr7oojmlu" path="res://send_to_scene_button.gd" id="5_f2txt"]
 [ext_resource type="AudioStream" uid="uid://s821r2pykjcm" path="res://assets/screw.mp3" id="6_1ainy"]
+[ext_resource type="AudioStream" uid="uid://d03mpmoigx28y" path="res://assets/score.mp3" id="7_n6hdu"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_cwqvt")
@@ -80,6 +81,9 @@ metadata/scene = "res://levels/1.tscn"
 
 [node name="PanelPlaceNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1ainy")
+
+[node name="ScoreNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_n6hdu")
 
 [connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
 [connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]
