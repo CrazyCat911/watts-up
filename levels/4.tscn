@@ -23,3 +23,6 @@ polygon = PackedVector2Array(704, 256, 512, 256, 512, 320, 704, 320)
 position = Vector2(736, 288)
 scale = Vector2(0.112676, 0.112676)
 texture = ExtResource("2_1cxa1")
+
+[node name="NextLevel" parent="." index="10"]
+metadata/scene = "res://levels/5.tscn"

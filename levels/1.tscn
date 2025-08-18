@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://3ylg03rwp8ur" path="res://level.tscn" id="1_ap1tn"]
 
 [node name="Level" instance=ExtResource("1_ap1tn")]
+
+[node name="NextLevel" parent="." index="9"]
+metadata/scene = "res://levels/2.tscn"

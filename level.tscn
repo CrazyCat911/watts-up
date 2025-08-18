@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://3ylg03rwp8ur"]
+[gd_scene load_steps=6 format=3 uid="uid://3ylg03rwp8ur"]
 
 [ext_resource type="Script" uid="uid://dwn5yrsmtx65l" path="res://level.gd" id="1_cwqvt"]
 [ext_resource type="PackedScene" uid="uid://b6mck83s6vfmw" path="res://shop.tscn" id="1_hjsbj"]
 [ext_resource type="Texture2D" uid="uid://w6j0pxkjor3d" path="res://assets/grass.png" id="2_0b4ue"]
 [ext_resource type="Texture2D" uid="uid://dckwk3brfohgp" path="res://assets/roof-tiles-4096x4096.png" id="2_cwqvt"]
+[ext_resource type="Script" uid="uid://d2rkbr7oojmlu" path="res://send_to_scene_button.gd" id="5_f2txt"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_cwqvt")
@@ -59,6 +60,22 @@ offset_right = 8.0
 offset_bottom = 8.0
 theme_override_font_sizes/font_size = 42
 text = "←"
+
+[node name="NextLevel" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1062.0
+offset_top = 617.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Next Level"
+script = ExtResource("5_f2txt")
+metadata/scene = "res://levels/1.tscn"
 
 [connection signal="item_selected" from="Shop" to="." method="_on_shop_item_selected"]
 [connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]

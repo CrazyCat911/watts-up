@@ -6,3 +6,11 @@
 
 [node name="Roof" parent="." index="2"]
 polygon = PackedVector2Array(0, 0, 144, 80, 400, 400, 0, 400)
+
+[node name="NextLevel" parent="." index="9"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 0.0
+offset_bottom = 0.0
+text = ""
+script = null
