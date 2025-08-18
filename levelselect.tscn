@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhcqofmd4c2om"]
+[gd_scene load_steps=4 format=3 uid="uid://dhcqofmd4c2om"]
 
 [ext_resource type="Script" uid="uid://d8ud8a54un33" path="res://levelselect.gd" id="1_pfsfy"]
 [ext_resource type="Script" uid="uid://d2rkbr7oojmlu" path="res://send_to_scene_button.gd" id="2_8h15g"]
+[ext_resource type="Texture2D" uid="uid://balkh63qn4f1e" path="res://assets/background_sky.jpg" id="2_eo15b"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -13,14 +14,16 @@ grow_vertical = 2
 script = ExtResource("1_pfsfy")
 main_menu_scene = "uid://buqqtve8thlpi"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2, 0.486275, 0.592157, 1)
+texture = ExtResource("2_eo15b")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
