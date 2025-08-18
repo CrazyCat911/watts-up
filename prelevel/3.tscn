@@ -4,13 +4,15 @@
 
 [node name="Prelevel" instance=ExtResource("1_1j2m5")]
 
-[node name="Text" parent="." index="0"]
+[node name="Text" parent="." index="1"]
 text = "When placing a panel in shadow, its effectiveness decreases.
 
-Shading is a serious problem, not only lowering energy production, but also potentially causing some serious damage to the cells, panels, or other components. An example of this is hot spot heating, which occurs due to solar panels in shade having high electrical resistance, other panels in the string have to “force” the electricity through the shaded cell, not only wasting energy, but also heating the shaded cell up. In extreme cases, this can cause the panel glass to crack or solder to melt. Bypass diodes help us fix this issue by allowing some of the energy to go around the shaded cell, lowering the amount of overheating."
+Shading on solar panels is a big problem. It lowers how much electricity they make and can even damage the panels.
+One danger is hot spot heating. This happens when part of a panel is in the shade. The shaded part blocks the flow, so the other panels push electricity through it. This makes the shaded part heat up a lot. In bad cases, the glass can crack or the metal parts can melt.
+To stop this, panels use bypass diodes, which let electricity flow around the shaded part instead of through it. This reduces overheating and protects the panel."
 
-[node name="Title" parent="." index="1"]
+[node name="Title" parent="." index="2"]
 text = "Level 3 - Shadow, Shadow, on my roof"
 
-[node name="Button" parent="." index="2"]
+[node name="Button" parent="." index="3"]
 metadata/scene = "res://levels/3.tscn"
