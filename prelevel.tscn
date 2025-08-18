@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdihmyv7p24xa"]
+[gd_scene load_steps=5 format=3 uid="uid://bdihmyv7p24xa"]
 
+[ext_resource type="Texture2D" uid="uid://balkh63qn4f1e" path="res://assets/background_sky.jpg" id="1_o8vk1"]
 [ext_resource type="Script" uid="uid://d2rkbr7oojmlu" path="res://send_to_scene_button.gd" id="1_sv7bm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcnhk"]
+bg_color = Color(0.2, 0.486275, 0.592157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y8y4"]
+bg_color = Color(0.2, 0.486275, 0.592157, 1)
 
 [node name="Prelevel" type="Control"]
 layout_mode = 3
@@ -10,14 +17,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2, 0.486275, 0.592157, 1)
+texture = ExtResource("1_o8vk1")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Text" type="Label" parent="."]
 layout_mode = 1
@@ -31,6 +40,7 @@ offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_hcnhk")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus nisl sed tellus euismod interdum. Donec a luctus nulla, non faucibus arcu. Mauris mi turpis, tristique id imperdiet quis, egestas at ante. Duis sit amet placerat nibh, sed semper ex. Integer vel libero rhoncus, pulvinar dolor gravida, bibendum eros. Donec eget aliquam elit. Nunc nisl dui, consequat a pellentesque sit amet, lobortis et metus. Ut non erat quis urna semper cursus ac et nibh. Donec varius est sit amet leo ullamcorper lobortis quis nec quam. Duis a magna in mauris ultrices sollicitudin vel quis sem. Quisque tristique ultricies quam, sit amet commodo massa rhoncus non. Sed condimentum nibh vel magna congue, eu vehicula lacus dictum. Donec pretium sit amet lacus sit amet dictum. Nulla est ipsum, fermentum nec mollis facilisis, elementum sed nisi. Praesent dapibus urna id facilisis facilisis."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -43,6 +53,7 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4y8y4")
 text = "Level 1 - I've got the power"
 horizontal_alignment = 1
 
