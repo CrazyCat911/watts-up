@@ -4,12 +4,12 @@
 
 [node name="Prelevel" instance=ExtResource("1_osgmb")]
 
-[node name="Text" parent="." index="0"]
+[node name="Text" parent="." index="1"]
 text = "WHAT KIND OF ROOF SHAPE IS THAT?!?!?!?!??!
 Did you know that solar energy farms use solar panels that automatically face the sun for higher energy production?"
 
-[node name="Title" parent="." index="1"]
+[node name="Title" parent="." index="2"]
 text = "Level 6 - The architect is crazy"
 
-[node name="Button" parent="." index="2"]
+[node name="Button" parent="." index="3"]
 metadata/scene = "res://levels/6.tscn"

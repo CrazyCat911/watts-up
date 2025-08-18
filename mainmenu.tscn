@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://buqqtve8thlpi"]
+[gd_scene load_steps=6 format=3 uid="uid://buqqtve8thlpi"]
 
 [ext_resource type="Script" uid="uid://bsyptib3xulu" path="res://mainmenustartbutton.gd" id="1_d2nv2"]
 [ext_resource type="Texture2D" uid="uid://balkh63qn4f1e" path="res://assets/background_sky.jpg" id="1_igs2m"]
 [ext_resource type="AudioStream" uid="uid://dnr0uq35vtjhb" path="res://assets/i_got_the_power.mp3" id="2_d2nv2"]
 [ext_resource type="Texture2D" uid="uid://du0grpy0vryc7" path="res://assets/main_menu.png" id="3_wgsso"]
+[ext_resource type="Script" uid="uid://2qhn5se7t0qt" path="res://quit.gd" id="5_3pujl"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -60,4 +61,17 @@ position = Vector2(576, 317.43)
 scale = Vector2(0.287109, 0.287109)
 texture = ExtResource("3_wgsso")
 
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -97.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+script = ExtResource("5_3pujl")
+
 [connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
