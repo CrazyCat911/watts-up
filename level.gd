@@ -20,6 +20,7 @@ var placed_items: Array[PackedVector2Array] = []
 @onready var place_helper: ColorRect = $PlaceHelper
 @onready var shadows = $Shadows.get_children()
 @onready var blockers = $Blockers.get_children()
+@onready var panel_place_noise: AudioStreamPlayer  = $PanelPlaceNoise
 
 var config: Dictionary = {
 	"solar_panel": {
@@ -126,6 +127,7 @@ func _on_solar_panel_place():
 		selected_node = null
 		selected_item = ""
 		selected_item_poly = PackedVector2Array()
+		panel_place_noise.play(0.0)
 	else: # Potentially play error/bong noise?
 		shop_data[selected_item] += 1
 		shop.init_shop(shop_data, {})
