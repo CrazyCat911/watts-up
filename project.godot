@@ -21,6 +21,7 @@ config/icon="res://assets/solar_panel.png"
 
 SaveLib="*res://save_lib.gd"
 PolygonUtils="*res://polygon_utils.gd"
+Loading="*res://loading_global.gd"
 
 [display]
 

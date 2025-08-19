@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://befb7n6o54ddo"]
+
+[ext_resource type="Script" uid="uid://cve1ipuapk1hy" path="res://loading.gd" id="1_gov4d"]
+[ext_resource type="Texture2D" uid="uid://balkh63qn4f1e" path="res://assets/background_sky.jpg" id="2_pg7vo"]
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gov4d")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pg7vo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 146
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 286.0
+offset_right = 1051.0
+offset_bottom = 441.0
+theme_override_font_sizes/font_size = 96
