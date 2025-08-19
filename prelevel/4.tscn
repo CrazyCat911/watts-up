@@ -5,8 +5,10 @@
 [node name="Prelevel" instance=ExtResource("1_d1fsm")]
 
 [node name="Text" parent="." index="1"]
-text = "ANOTHER SHADOW! This one is more complex.
-Did you know that tilt of the solar panel can affect production? Unfortunately, it doesn't affect anything is this game, becuase I am trash at programming."
+text = "ANOTHER SHADOW! This one’s trickier.
+
+Did you know the tilt of a solar panel can change how much electricity it makes?
+But don’t worry - in this level, tilt doesn’t matter. COMING SOON!"
 
 [node name="Title" parent="." index="2"]
 text = "Level 4 - Another Day, Another Shadow"

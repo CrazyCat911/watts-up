@@ -5,7 +5,7 @@
 [node name="Prelevel" instance=ExtResource("1_y1qys")]
 
 [node name="Text" parent="." index="1"]
-text = "In this level, you need to avoid the chimney. The chimney is really annoying becuase you cannot place panels onto it. Why does this house have a fireplace anyway?
+text = "In this level, you need to avoid the chimney. The chimney is really annoying because you cannot place panels onto it. Why does this house have a fireplace anyway?
 
 Solar panels make electricity using sunlight. Inside, they have two special layers called n-type and p-type.
 The n-type has extra tiny particles called electrons.

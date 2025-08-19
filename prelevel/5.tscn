@@ -5,7 +5,9 @@
 [node name="Prelevel" instance=ExtResource("1_wj6t5")]
 
 [node name="Text" parent="." index="1"]
-text = "I don't know who designed this roof, it probably wasn't me. What kind of person would want an \"L\"-shaped roof anyway? For the optimal tilt of your solar panel, make it roughly the same as your latitude. (You cannot tilt panels in this game though, it's just 2D)"
+text = "I don't know who designed this roof, it probably wasn't me. What kind of person would want an \"L\"-shaped roof anyway?
+
+For the optimal tilt of your solar panel, make it roughly the same as your latitude. (You cannot tilt panels in this game though, it's just 2D)"
 
 [node name="Title" parent="." index="2"]
 text = "Level 5 - Weird Roof"
