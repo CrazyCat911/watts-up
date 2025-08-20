@@ -29,6 +29,10 @@ window/size/mode=2
 window/stretch/mode="canvas_items"
 window/size/mode.editor=0
 
+[gui]
+
+theme/custom="uid://deo886jp5n4xy"
+
 [input]
 
 click={
