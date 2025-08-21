@@ -5,4 +5,4 @@
 [node name="Level" instance=ExtResource("1_ap1tn")]
 
 [node name="NextLevel" parent="." index="9"]
-metadata/scene = "res://levels/2.tscn"
+metadata/scene = "res://prelevel/2.tscn"

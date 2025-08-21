@@ -77,7 +77,7 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Next Level"
 script = ExtResource("5_f2txt")
-metadata/scene = "res://levels/1.tscn"
+metadata/scene = "res://prelevel/1.tscn"
 
 [node name="PanelPlaceNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1ainy")

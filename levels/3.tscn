@@ -25,4 +25,4 @@ scale = Vector2(0.112676, 0.112676)
 texture = ExtResource("2_4l4ro")
 
 [node name="NextLevel" parent="." index="10"]
-metadata/scene = "res://levels/4.tscn"
+metadata/scene = "res://prelevel/4.tscn"

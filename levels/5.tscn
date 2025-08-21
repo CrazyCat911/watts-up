@@ -12,4 +12,4 @@ position = Vector2(304, 128)
 polygon = PackedVector2Array(0, 0, 208, 0, 208, 192, 400, 192, 400, 384, 0, 384)
 
 [node name="NextLevel" parent="." index="9"]
-metadata/scene = "res://levels/6.tscn"
+metadata/scene = "res://prelevel/6.tscn"
