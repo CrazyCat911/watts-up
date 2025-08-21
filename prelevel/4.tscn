@@ -7,7 +7,7 @@
 [node name="Text" parent="." index="1"]
 text = "ANOTHER SHADOW! This one’s trickier.
 
-Did you know the tilt of a solar panel can change how much electricity it makes?
+Did you know the tilt of a solar panel can change how much electricity it makes. The more direct the sun, the more energy the panel produces. This is becuase more rays hit the panel if they are strait on, rather than at an angle.
 But don’t worry - in this level, tilt doesn’t matter. COMING SOON!"
 
 [node name="Title" parent="." index="2"]

@@ -7,7 +7,7 @@
 [node name="Text" parent="." index="1"]
 text = "WHAT KIND OF ROOF SHAPE IS THAT?!?!?!?!??!
 
-Did you know that solar energy farms use solar panels that automatically face the sun for higher energy production?"
+Did you know that solar energy farms use solar panels that automatically face the sun for higher energy production? The panels track the sun, and, similar to sunflowers, automatially face it for optimal energy production."
 
 [node name="Title" parent="." index="2"]
 text = "Level 6 - The architect is crazy"
