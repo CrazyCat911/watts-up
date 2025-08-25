@@ -13,8 +13,8 @@ jobs:
       - name: Unzip Godot
         run: unzip Godot.zip -d godot && mv godot/Godot_v4.4.1-stable_linux.x86_64 godot/godot
       - name: Compile for Windows
-        run: godot/godot --headless --path work/watts-up/ --export-release win watts-up/build/win.exe
+        run: godot/godot --headless --export-release win watts-up/build/win.exe
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: work/watts-up/build/
+          artifacts: build/
