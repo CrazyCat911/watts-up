@@ -1,0 +1,23 @@
+name: on-push
+run-name: Push run for commit ${{ github.sha }}
+on: [push]
+
+env:
+  GITHUB_WORKSPACE: watts-up
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Download Godot
+        run: curl -L -o "Godot.zip" https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip --ssl-no-revoke
+      - name: Unzip Godot
+        run: unzip Godot.zip -d godot && mv godot/Godot_v4.4.1-stable_linux.x86_64 godot/godot
+      - name: Compile for Windows
+        run: godot/godot --headless --path watts-up/project.godot --export-release win watts-up/build/win.exe
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: watts-up/build/
