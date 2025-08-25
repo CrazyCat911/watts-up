@@ -2,9 +2,6 @@ name: on-push
 run-name: Push run for commit ${{ github.sha }}
 on: [push]
 
-env:
-  GITHUB_WORKSPACE: watts-up
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,8 +13,8 @@ jobs:
       - name: Unzip Godot
         run: unzip Godot.zip -d godot && mv godot/Godot_v4.4.1-stable_linux.x86_64 godot/godot
       - name: Compile for Windows
-        run: godot/godot --headless --path watts-up/ --export-release win watts-up/build/win.exe
+        run: godot/godot --headless --path work/watts-up/ --export-release win watts-up/build/win.exe
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: watts-up/build/
+          artifacts: work/watts-up/build/
