@@ -1,24 +1,28 @@
-name: on-push
-run-name: Push run for commit ${{ github.sha }}
-on: [push]
+name: Build Godot Project
+
+on:
+  push: {}
 
 jobs:
-  build:
+  export:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    name: Export
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Download Godot
-        run: curl -L -o "Godot.zip" https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip --ssl-no-revoke
-      - name: Unzip Godot
-        run: unzip Godot.zip -d godot && mv godot/Godot_v4.4.1-stable_linux.x86_64 godot/godot
-      - name: Download Export Templates
-        run: curl -L -o "export.zip" https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz --ssl-no-revoke
-      - name: Unzip Export Templates
-        run: unzip export.zip
-      - name: Compile for Windows
-        run: godot/godot --headless --export-release win watts-up/build/win.exe
-      - name: Create Release
-        uses: ncipollo/release-action@v1
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Export
+        id: export
+        uses: firebelley/godot-export@v7.0.0
         with:
-          artifacts: build/
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
+          relative_project_path: ./
+      - name: Create Release
+        uses: ncipollo/release-action@v1.18.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          generateReleaseNotes: true
+          tag: ${{ github.ref_name }}
+          artifacts: ${{ steps.export.outputs.build_directory }}/*
