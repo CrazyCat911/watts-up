@@ -15,7 +15,7 @@ jobs:
       - name: Download Export Templates
         run: curl -L -o "export.zip" https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz --ssl-no-revoke
       - name: Unzip Export Templates
-        run: unzip export.zip -d .
+        run: unzip export.zip
       - name: Compile for Windows
         run: godot/godot --headless --export-release win watts-up/build/win.exe
       - name: Create Release
