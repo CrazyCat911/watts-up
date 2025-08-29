@@ -24,4 +24,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: Release
-          artifacts: "${{ steps.export.outputs.build_directory }}/*"
+          artifacts: "${{ steps.export.outputs.build_directory }}/**/*"
