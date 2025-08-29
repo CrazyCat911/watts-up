@@ -23,5 +23,5 @@ jobs:
         uses: ncipollo/release-action@v1.18.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.event.head_commit.message }}
+          tag: Release
           artifacts: "${{ steps.export.outputs.build_directory }}/*"
