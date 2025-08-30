@@ -25,24 +25,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: v${{ github.run_number }}-${{ github.sha }}
-          artifacts: |
-            ${{ steps.export.outputs.build_directory }}/win/*
-            ${{ steps.export.outputs.build_directory }}/linux/*
-      - name: Upload Pages Artifact
-        id: deployment
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ${{ steps.export.outputs.build_directory }}/index/
-  deploy:
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: export
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          artifacts: "${{ steps.export.outputs.build_directory }}/**/*"
