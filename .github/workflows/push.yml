@@ -33,6 +33,9 @@ jobs:
         with:
           path: ${{ steps.export.outputs.build_directory }}/web/
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
