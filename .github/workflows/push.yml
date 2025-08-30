@@ -19,6 +19,7 @@ jobs:
           godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
           relative_project_path: ./
+          cache: true
       - name: Create Release
         uses: ncipollo/release-action@v1.18.0
         with:
@@ -31,7 +32,7 @@ jobs:
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ steps.export.outputs.build_directory }}/web/
+          path: ${{ steps.export.outputs.build_directory }}/index/
   deploy:
     permissions:
       pages: write
