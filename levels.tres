@@ -1,0 +1,22 @@
+[gd_resource type="JSON" format=3 uid="uid://cbk64fnmpx75q"]
+
+[resource]
+data = [{
+"img": "uid://0xquswn3lsvc",
+"scene": "uid://djj6g4l68sj2c"
+}, {
+"img": "uid://b6hak1xbhr3se",
+"scene": "uid://d2wxva6rlfphr"
+}, {
+"img": "uid://bcy7h23grpeu7",
+"scene": "uid://b2or8wfuk0pis"
+}, {
+"img": "uid://cl5goaqvykg18",
+"scene": "uid://dyxys0yx02pqd"
+}, {
+"img": "uid://tecwhvfs8dln",
+"scene": "uid://b6pd7011hcueq"
+}, {
+"img": "uid://b7ghevqjxk61p",
+"scene": "uid://db7fxaxt1ut6a"
+}]

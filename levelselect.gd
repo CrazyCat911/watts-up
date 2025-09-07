@@ -8,30 +8,22 @@ var button_script: Script = load("uid://d2rkbr7oojmlu") # res://send_to_scene_bu
 func _ready() -> void:
 	var level_select_button_theme = Theme.new()
 	level_select_button_theme.default_font_size = 100
-	
-	var files: Array[String] = []
-	const SEND_TO_FOLDER: String = "res://prelevel/"
-	var dir := DirAccess.open(SEND_TO_FOLDER)
-	
-	if dir:
-		dir.list_dir_begin()
-		var file_name := dir.get_next()
-		
-		while file_name:
-			if not dir.current_is_dir():
-				files.append(file_name)
-			file_name = dir.get_next()
-		dir.list_dir_end()
-	
-	for file in files:
+
+	var levels = ResourceLoader.load("res://levels.tres").get("data")
+
+	var i := 1
+
+	for level in levels:
 		var button = Button.new()
-		var file_basename = file.get_file().get_basename()
-		button.set_meta("scene", SEND_TO_FOLDER + file)
-		button.text = file_basename
+		var icon = ResourceLoader.load(level.get("img"))
+
+		button.set_meta("scene", level.get("scene"))
+		button.text = str(i)
 		button.theme = level_select_button_theme
-		button.icon = load("res://assets/level_start_icons/%s.png" % file_basename)
+		button.icon = icon
 		button.set_script(button_script)
 		grid_container.add_child(button)
+		i += 1
 	
 	await get_tree().process_frame
 	grid_container.position = Vector2(
